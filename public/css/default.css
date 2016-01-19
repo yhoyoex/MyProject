@@ -1,0 +1,14 @@
+
+.header_bar{
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+}
+.header_link{
+    text-decoration: none;
+    color: white;
+}
+.header_link:hover{
+    text-decoration: none;
+    color: #999;
+}
