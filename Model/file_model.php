@@ -27,6 +27,12 @@ class File_Model extends Model {
 	}
 
 	public function get_data_result($keyword) {
+
+		$keyword = $this->prepare_search_keyword($keyword);
+		if(trim($keyword) == "") return array();
+
+//		echo $keyword;
+ 
 		$sql = "SELECT 
 					files.*,
 					user_login.id as user_id,
@@ -39,12 +45,24 @@ class File_Model extends Model {
 				ON 
 					files.create_user_id = user_login.id
 				WHERE 
-					MATCH(file_name, description, tag) AGAINST (:keyword)
+					MATCH(file_name, description, tag) AGAINST (:keyword IN BOOLEAN MODE)
 				AND
 					files.is_archived = 0";
 		
 		$res = $this->db->query($sql, array(":keyword" => $keyword));
 		return $res;
+	}
+
+	private function prepare_search_keyword($keyword){
+		$keyword_res = "+" . trim($keyword);
+		if($keyword_res == "+") return "";
+		$keyword_res = str_replace(" ", " +", $keyword_res);
+
+		$keyword_hacked = "\"".$keyword."\"";
+		$keyword_hacked = str_replace("\"\"", "\"", $keyword_hacked);
+		$keyword_res = " (" . $keyword_res . ") " . $keyword_hacked;
+
+		return $keyword_res;
 	}
 
 	public function reserve_id() {
