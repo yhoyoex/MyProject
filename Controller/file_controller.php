@@ -102,8 +102,19 @@ class file_controller extends Controller
         echo json_encode($data);
     }
 
-    public function download($id) {
-        $this->view->data = $this->model->get_by_id($id);
-        $this->view->render("file/download", true);
+    public function download() {
+        require('lib/fpdf/fpdf.php');
+        $pdf = new FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',16);
+        $pdf->Cell(40,10,'Hello World!');
+
+        ob_end_clean();
+        ob_start();
+
+        $pdf->Output();
+        //$this->view->data = $this->model->get_by_id($id);
+        //$this->view->render("file/download", true);
     }
+
 }
