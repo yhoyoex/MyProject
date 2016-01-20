@@ -1,5 +1,4 @@
- <?php
-
+<?php
 class View {
 
 	function __construct() {
@@ -18,3 +17,4 @@ class View {
 		}
 	}
 }
+?>
