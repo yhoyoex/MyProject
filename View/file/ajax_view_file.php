@@ -37,7 +37,7 @@
 	</table>
 </div>
 <div class="modal-footer">
-	<a href="javascript:;" class="btn btn-sm btn-primary" data-dismiss="modal">Download</a>
+	<a href="File/download" target="_blank" class="btn btn-sm btn-primary">Download</a>
 	<a href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">Close</a>
 </div>
 

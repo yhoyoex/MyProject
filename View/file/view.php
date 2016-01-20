@@ -1,5 +1,5 @@
 
-<?php include ('datatables_js.php'); ?>
+<?php include ('document-js.php'); ?>
 <div class="row" id="row">                   
     <div class="col-md-12"><!-- end page-header -->
         <div class="panel panel-inverse">
@@ -33,6 +33,16 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
 </div>
 
 <div class="modal fade" id="modal_files" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" data-keyboard="false">
@@ -126,16 +136,6 @@
             </div>
         </div>
     </div>
-</div>
-
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
 </div>
 
 <?php include ('template_files.php'); ?>

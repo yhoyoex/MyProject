@@ -15,21 +15,19 @@ $(document).ready(function() {
         if (e.which == 13) {
             $( "#btnSearch" ).click();
         }
-    });     
+    }); 
+
+    $('#search').keyup(function(e){
+        if(e.keyCode == 27) {
+            $(this).val('');
+        }
+    });
             
-    $('#search').on( 'keyup click', function () {
-        $('#files').DataTable().search(
-            $('#search').val()
-        ).draw();
-    });
-
-    $("#search").keyup(function () {
-        var t = $(this);
-        t.next('span').toggle(Boolean(t.val()));
-    });
-
-    $("#search").addClear();
-
+ //   $('#search').on( 'keyup click', function () {
+ //       $('#files').DataTable().search(
+ //           $('#search').val()
+ //       ).draw();
+  //  });
 });
 
 function showModals( id ) {
