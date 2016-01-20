@@ -1,4 +1,4 @@
-<hr>
+<hr><br><br>
 <div class="table-responsive">
     <table id="files" class="table table-bordered table-condensed table-striped" cellspacing="0" width="100%">
         <thead>
@@ -29,6 +29,7 @@ $(document).ready(function() {
         "pagingType": "full_numbers",
         "dom": '<"top">rt<"bottom"ip><"clear">',
         "sorting":[[3, "desc"]],
+        "responsive": true,
         "lengthMenu": [ [15, 25, 50, -1], [15, 25, 50, "All"] ],
         "ajax": {
             "url": "File/view_content_result/" + search,

@@ -21,6 +21,7 @@
     <script src="<?php echo URL; ?>public/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
     <script src="<?php echo URL; ?>public/plugins/bootstrap-validator/dist/js/bootstrapValidator.js"></script>
     <script src="<?php echo URL; ?>public/plugins/bootstrap-validator/validator.js"></script>
+    <script src="<?php echo URL; ?>public/plugins/bootstrap-add-clear/bootstrap-add-clear.js"></script>
 	<!-- ================== END BASE JS ================== -->
 
     <!-- ================== BEGIN PAGE JS JQUERY FILE UPLOAD ================== -->

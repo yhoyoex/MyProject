@@ -13,17 +13,19 @@
             </div>
             <div class="panel-body">
             <div style="padding-top:20px; padding-bottom:20px">
-                <div class="form-group has-success">
+                <div class="form-group has-success has-feedback">
                     <label class="col-md-3 control-label"></label>
                     <div class="col-md-6">
                         <div class="input-group custom-search-form">
-                            <input type="text" class="form-control input-lg" name="keyword" id="search" placeholder="Search Document..." autofocus >
+                            <input type="text" class="form-control input-lg search" name="keyword" id="search" placeholder="Search Document..." autofocus >
                             <span class="input-group-btn">
                                 <button class="btn btn-lg btn-success" type="button" id="btnSearch">
                                     <span class="glyphicon glyphicon-search"></span>
                                 </button>
                             </span>
                         </div>
+                        <br>
+                        <div><span>Type keyword and <span class="label label-inverse">ENTER</span> to new search or <span class="label label-inverse">ESC</span> to clear search box</span></div>
                     </div>
                 </div>
             </div>
@@ -101,18 +103,7 @@
 <!-- #modal-View -->
 <div class="modal modal-message fade" id="modal_view">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 align="center" class="modal-title" id="modal_view_title"></h3>
-            </div>
-            <div class="modal-body" id="modal_view_body">
-              
-            </div>
-            <div class="modal-footer">
-                <a href="javascript:;" class="btn btn-sm btn-primary" data-dismiss="modal">Download</a>
-                <a href="javascript:;" class="btn btn-sm btn-danger" data-dismiss="modal">Close</a>
-            </div>
-        </div>
+        <div class="modal-content" id="modal_view_body"></div>
     </div>
 </div>
 

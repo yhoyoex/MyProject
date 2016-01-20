@@ -21,8 +21,15 @@ $(document).ready(function() {
         $('#files').DataTable().search(
             $('#search').val()
         ).draw();
-    }); 
-   
+    });
+
+    $("#search").keyup(function () {
+        var t = $(this);
+        t.next('span').toggle(Boolean(t.val()));
+    });
+
+    $("#search").addClear();
+
 });
 
 function showModals( id ) {

@@ -65,7 +65,7 @@ class file_controller extends Controller
 
     public function upload_file() {
         error_reporting(E_ALL | E_STRICT);
-        require('UploadHandler.php');
+        require('lib/UploadHandler.php');
         $upload_handler = new UploadHandler();
 
 /*
@@ -100,5 +100,10 @@ class file_controller extends Controller
     public function show_AllTags() {
         $data = $this->model->get_AllTagss();
         echo json_encode($data);
+    }
+
+    public function download($id) {
+        $this->view->data = $this->model->get_by_id($id);
+        $this->view->render("file/download", true);
     }
 }
