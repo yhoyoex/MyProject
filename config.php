@@ -19,7 +19,7 @@ while($slash_count > 0){
 define("URL", $public_folder);
 */
 
-$self = $_SERVER["PHP_SELF"];
+$self = "http://".$_SERVER['SERVER_NAME'].$_SERVER["PHP_SELF"];
 $self = str_replace("index.php", "", $self);
 define("URL", $self);
 

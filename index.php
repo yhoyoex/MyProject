@@ -13,6 +13,7 @@ require "lib/Bootstrap.php";
 require "lib/common/soap2.php";
 require "lib/Session.php";
 require "lib/LoginAssist.php";
+require "Engine/ImageServerEngine.php";
 
 Session::init();
 

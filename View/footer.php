@@ -17,10 +17,11 @@
 	<script src="<?php echo URL; ?>public/plugins/jquery-cookie/jquery.cookie.js"></script>
     <script src="<?php echo URL; ?>public/js/moment.js"></script>
     <script src="<?php echo URL; ?>public/js/jquery.json.js"></script>
+    <script src="<?php echo URL; ?>public/js/keypress.js"></script>
     <script src="<?php echo URL; ?>public/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js"></script>
     <script src="<?php echo URL; ?>public/plugins/bootstrap-tagsinput/bootstrap-tagsinput-typeahead.js"></script>
-    <script src="<?php echo URL; ?>public/plugins/bootstrap-validator/dist/js/bootstrapValidator.js"></script>
     <script src="<?php echo URL; ?>public/plugins/bootstrap-validator/validator.js"></script>
+    <script src="<?php echo URL; ?>public/plugins/sweetalert/lib/sweet-alert.js"></script>
 	<!-- ================== END BASE JS ================== -->
 
     <!-- ================== BEGIN PAGE JS JQUERY FILE UPLOAD ================== -->
@@ -37,13 +38,15 @@
     <script src="<?php echo URL; ?>public/plugins/jquery-file-upload/js/jquery.fileupload-video.js"></script>
     <script src="<?php echo URL; ?>public/plugins/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
     <script src="<?php echo URL; ?>public/plugins/jquery-file-upload/js/jquery.fileupload-ui.js"></script>
-    <script src="<?php echo URL; ?>public/js/test.js"></script>
+    <script src="<?php echo URL; ?>public/plugins/bootstrap-image-gallery/js/bootstrap-image-gallery.js"></script>
+    
     <!--[if (gte IE 8)&(lt IE 10)]>
         <script src="assets/plugins/jquery-file-upload/js/cors/jquery.xdr-transport.js"></script>
     <![endif]-->
     <!-- ================== END PAGE JS JQUERY FILE UPLOAD ================== -->
 
 	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+    <script src="<?php echo URL; ?>public/plugins/lightbox2/js/lightbox.js"></script>
     <script src="<?php echo URL; ?>public/plugins/gritter/js/jquery.gritter.js"></script>
 	<script src="<?php echo URL; ?>public/js/apps.min.js"></script>
 	<!-- ================== END PAGE LEVEL JS ================== -->

@@ -1,6 +1,6 @@
 <script id="template-upload" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-upload">
+    <tr class="template-upload fade">
         <td>
             <span class="preview"></span>
         </td>
@@ -9,8 +9,8 @@
             <strong class="error text-danger"></strong>
         </td>
         <td>
-            <p class="size"></p>
-            
+            <p class="size">Processing...</p>
+            <div class="progress progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar progress-bar-success" style="width:0%;"></div></div>
         </td>
         <td>
             {% if (!i && !o.options.autoUpload) { %}
@@ -29,7 +29,7 @@
 <!-- The template to display files available for download -->
 <script id="template-download" type="text/x-tmpl">
 {% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-download data">
+    <tr class="template-download data fade">
         <td>
             <span class="preview">
                 {% if (file.thumbnailUrl) { %}
@@ -37,7 +37,7 @@
                 {% } %}
             </span>
         </td>
-        <td name="img_name" id="img_name">
+        <td name="img_name" id="img_name" class="name">
             <p class="name">
                 {% if (file.url) { %}
                     <a href="{%=file.url%}" title="{%=file.name%}" download="{%=file.name%}" {%=file.thumbnailUrl?'data-gallery':''%}>{%=file.name%}</a>
@@ -49,16 +49,19 @@
                 <div><span class="label label-danger">Error</span> {%=file.error%}</div>
             {% } %}
         </td>
-        <td>
+        <td style="display: none;">
+            <span class="document_photo_url" name="document_photo_url[]" id="document_photo_url" style="display: none;"></span>
+        </td>
+        <td class="size">
             <span class="size">{%=o.formatFileSize(file.size)%}</span>
         </td>
         <td>
             {% if (file.deleteUrl) { %}
-                <button class="btn btn-danger delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
-                    <i class="glyphicon glyphicon-trash"></i>
-                    <span>Delete</span>
+                <button class="btn btn-warning delete" data-type="{%=file.deleteType%}" data-url="{%=file.deleteUrl%}"{% if (file.deleteWithCredentials) { %} data-xhr-fields='{"withCredentials":true}'{% } %}>
+                    <i class="glyphicon glyphicon-ban-circle"></i>
+                    <span>Cancel</span>
                 </button>
-                <input type="checkbox" name="delete" value="0" class="toggle" checked disabled>
+                <input type="checkbox" name="delete" value="0" class="toggle" style="opacity:0; position:absolute;" checked disabled>
             {% } else { %}
                 <button class="btn btn-warning cancel">
                     <i class="glyphicon glyphicon-ban-circle"></i>

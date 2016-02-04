@@ -25,6 +25,7 @@
 	<link href="<?php echo URL; ?>public/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
 	<link href="<?php echo URL; ?>public/plugins/jquery-ui/jquery-ui.css" rel="stylesheet" />
 	<link href="<?php echo URL; ?>public/plugins/bootstrap-tagsinput/typeahead.css" rel="stylesheet" />
+	<link href="<?php echo URL; ?>public/plugins/bootstrap-image-gallery/css/bootstrap-image-gallery.css" rel="stylesheet" />
 	<!-- ================== END BASE CSS STYLE ================== -->
 
 	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
@@ -35,6 +36,8 @@
 	<link href="<?php echo URL; ?>public/plugins/jquery-file-upload/blueimp-gallery/blueimp-gallery.min.css" rel="stylesheet" />
     <link href="<?php echo URL; ?>public/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
     <link href="<?php echo URL; ?>public/plugins/bootstrap-validator/dist/css/bootstrapValidator.css" rel="stylesheet" />
+    <link href="<?php echo URL; ?>public/plugins/lightbox2/css/lightbox.css" rel="stylesheet" />
+    <link href="<?php echo URL; ?>public/plugins/sweetalert/lib/sweet-alert.css" rel="stylesheet" />
 	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 	
 	<!-- ================== BEGIN BASE JS ================== -->

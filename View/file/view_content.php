@@ -17,13 +17,13 @@
                                 </button>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="javascript:void(0)" title="Edit" onclick="showModals('.$file['id'].')" >
+                                        <a href="javascript:void(0)" title="Edit" onclick="showModalFile('.$file['id'].')" >
                                             <i class="glyphicon glyphicon-pencil"></i> Edit
                                         </a>
                                     </li>
                                     <li class="divider"></li>
                                     <li>
-                                        <a href="javascript:void(0)" title="Edit" onclick="deleteData('."'".$file['id']."'".')">
+                                        <a href="javascript:void(0)" title="Edit" onclick="showModalFileToDelete('."'".$file['id']."'".')">
                                             <i class="glyphicon glyphicon-trash"></i> Delete
                                         </a>
                                     </li>

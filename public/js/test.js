@@ -3,14 +3,18 @@
 $(function () {
     'use strict';
 
-    // Initialize the jQuery File Upload widget:
     $('#form').fileupload({
         // Uncomment the following to send cross-domain cookies:
         //xhrFields: {withCredentials: true},
         url: 'File/upload_file',
+        dataType: 'json',
+        disableImageResize:/Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
+        autoUpload: false,
+        singleFileUploads: true,
+        imageOrientation : true,
         add: function(e, data) {
                 var uploadErrors = [];
-                var acceptFileTypes = /^image\/(gif|jpe?g|png|pdf)$|^application\/(pdf|msword)$|^text\/plain$/i;
+                var acceptFileTypes = /^image\/(gif|jpe?g|png)$|^application\/(pdf|msword)$|^text\/plain$/i;
                 if(data.originalFiles[0]['type'].length && !acceptFileTypes.test(data.originalFiles[0]['type'])) {
                     uploadErrors.push('Not an accepted file type');
                 }
@@ -30,11 +34,7 @@ $(function () {
             //here isoutput of uploaded objects
           //  console.log(data);
         //},
-
-        dataType: 'json',
-        disableImageResize:/Android(?!.*Chrome)|Opera/.test(window.navigator.userAgent),
-        autoUpload: false,
-        singleFileUploads: true,        
+        
     });
 
     // Enable iframe cross-domain access via redirect option:

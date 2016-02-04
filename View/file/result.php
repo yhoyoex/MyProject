@@ -7,25 +7,25 @@
                 <th width="20%">Description</th>
                 <th width="20%">File Tag</th>
                 <th>Date Create</th>
-                <th width="12%"> Action </th>
+                <th width="15%"> Action </th>
             </tr>
         </thead>
         <tbody>
         </tbody>
-        <tfoot>
-            <th>File Name</th>
-            <th>Description</th>
-            <th>File Tag</th>
-            <th>Date Create</th>
-            <th></th>
-        </tfoot>
     </table>
 </div>
 <script type="text/javascript">
 var files;
-var search = $('#search').val();
+search = $('#search').val();
+search = search.replace(/\s{2,}/g, ' ');
+search = search.replace(/[^A-Z0-9\s]+/i, '');
 $(document).ready(function() {
     files = $('#files').DataTable({
+        "language": {
+            "zeroRecords": "Document not found...",
+            "loadingRecords": "Loading...",
+            "processing":     "Processing...",
+        },
         "pagingType": "full_numbers",
         "dom": '<"top">rt<"bottom"ip><"clear">',
         "sorting":[[3, "desc"]],
@@ -44,15 +44,16 @@ $(document).ready(function() {
             { "data" : 'action',"orderable" : false}
         ]
     });
+/*
 
-//    $('#files').delegate('tbody > tr > td', 'click', function () {
-//        showModalView(id)
-//    });
+    $('#files').delegate('tbody > tr > td', 'click', function () {
+        showModalView(id)
+    });
 
-    $('#files tfoot th').each(function (){
+   $('#files tfoot th').each(function (){
         //disable  search in footer colum action
         if( $(this).text() != "" ){
-            var title = $('#files thead th').eq( $(this).index() ).text();
+            //var title = $('#files thead th').eq( $(this).index() ).text();
             $(this).html( '<input type="text" placeholder="Search '+title+'" class="form-control" />' );
         }
     });
@@ -66,5 +67,7 @@ $(document).ready(function() {
             .draw();
         });
     } );
+*/
 });
+
 </script>

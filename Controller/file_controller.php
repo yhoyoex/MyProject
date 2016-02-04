@@ -29,32 +29,29 @@ class file_controller extends Controller
         $this->save_image();
         $this->model->put_data();
         $this->model->put_tags();
-        echo json_encode(array("status" => TRUE));
-    }
-
-    public function ajax_get_data($id) {
-        // GET DATA DOCUMENT
-        $data = $this->model->get_by_id($id);
-        echo json_encode($data);
+        //echo json_encode(array("status" => TRUE));
     }
 
     public function ajax_view_file($id) {
         // AJAX VIEW DOCUMENT
+        $this->view->client_info = $this->model->get_client_info();
         $this->view->data = $this->model->get_by_id($id);
         $this->view->render("file/ajax_view_file", true);
     }
 
-    public function ajax_edit_file($id) {
-        // AJAX EDIT DOCUMENT
-        $this->view->data = $this->model->get_by_id($id);
-        $this->view->render("file/ajax_edit_file", true);
-    }
- 
-    public function get_reserve_id() {
-        $data = $this->model->reserve_id();
-        echo json_encode($data);
+    public function ajax_get_data_file($id) {
+        $this->view->client_info = $this->model->get_client_info();
+        $this->view->res = $this->model->get_by_id($id);
+        //$this->view->token = $this->render_token();
+        $this->view->render("file/ajax_add_edit_file", true);
     }
 
+    public function reserve_id() {
+        $this->view->client_info = $this->model->get_client_info();
+        $this->view->res = $this->model->reserve_id();
+        $this->view->render("file/ajax_add_edit_file", true);
+    }
+ 
     public function ajax_update_file() {
         // AJAX UPDATE DOCUMENT
         $this->save_image();
@@ -66,18 +63,34 @@ class file_controller extends Controller
     public function upload_file() {
         error_reporting(E_ALL | E_STRICT);
         require('lib/UploadHandler.php');
-        $upload_handler = new UploadHandler();
 
-/*
-        $options = array(
-            "upload_urk" => "asdf",
-            "..." => "asdf",
-            "print_response" => $false;
-            );
+        $path_files = dirname($_SERVER['SCRIPT_FILENAME']).'/public/file/files/';
+            if (!file_exists($customer_path_files)) {
+                @mkdir($customer_path_files);
+        }
+
+        $path_thumbnails = dirname($_SERVER['SCRIPT_FILENAME']).'/public/file/files/thumbnail/';
+            if (!file_exists($customer_path_thumbnails)) {
+                @mkdir($customer_path_thumbnails);
+        }
+        
+        $options=array(
+            'upload_dir' => $path_files,
+            'upload_url' => URL.'File/upload_file',
+            'thumbnail' => array(
+                'upload_dir' => $path_thumbnails,
+                'upload_url' => URL.'File/upload_file',
+                'max_width' => 80,
+                'max_height' => 80
+            ),
+            'auto_orient' => true,
+            //'print_response' => false;
+        );
 
         $upload_handler = new UploadHandler($options);
-        $res = $upload_handler->generate_response(adsf);
 
+        /*
+        $res = $upload_handler->generate_response(adsf);
         echo $res;
         */
     }
@@ -98,23 +111,28 @@ class file_controller extends Controller
     }
 
     public function show_AllTags() {
-        $data = $this->model->get_AllTagss();
+        $data = $this->model->get_AllTags();
         echo json_encode($data);
     }
 
-    public function download() {
-        require('lib/fpdf/fpdf.php');
-        $pdf = new FPDF();
-        $pdf->AddPage();
-        $pdf->SetFont('Arial','B',16);
-        $pdf->Cell(40,10,'Hello World!');
-
-        ob_end_clean();
-        ob_start();
-
-        $pdf->Output();
-        //$this->view->data = $this->model->get_by_id($id);
-        //$this->view->render("file/download", true);
+    public function download($id) {
+        $this->view->res = $this->model->get_by_id($id);
+        $this->view->render("file/download", true);
     }
 
+    public function download_zip($file_download, $file_download_name) {
+        $files_to_zip = array($file_download);
+        $result = $this->model->create_zip($files_to_zip, $file_download_name);
+    }
+
+    public function get_preview_img($name){
+        $url = $this->model->get_url_img($name);
+        header("Content-Type: image/jpeg");
+        //header('Content-type: application/pdf');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        curl_exec($ch);
+        curl_close($ch);
+    }
 }

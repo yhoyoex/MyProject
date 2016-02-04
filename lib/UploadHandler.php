@@ -43,18 +43,18 @@ class UploadHandler
     function __construct($options = null, $initialize = true, $error_messages = null) {
         $this->response = array();
         $this->options = array(
-            'script_url' => $this->get_full_url().'/File/upload_file/',
-            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/public/file/files/',
-            'upload_url' => $this->get_full_url().'/public/file/files/',
+            'script_url' => URL .'File/upload_file',
+            'upload_dir' => dirname($_SERVER['SCRIPT_FILENAME']).'/public/file/files/',
+            'upload_url' => URL .'File/upload_file',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
             'thumbnailUrl' => $this->get_full_url().'/public/file/files',
             // Set the following option to 'POST', if your server does not support
             // DELETE requests. This is a parameter sent to the client:
-            'delete_type' => 'POST',
+            'delete_type' => 'DELETE',
             'access_control_allow_origin' => '*',
-            'access_control_allow_credentials' => false,
+            'access_control_allow_credentials' => true,
             'access_control_allow_methods' => array(
                 'OPTIONS',
                 'HEAD',
