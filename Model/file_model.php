@@ -39,7 +39,7 @@ class File_Model extends Model {
 		$this->db->query("ROLLBACK");
 		$res = $this->db->query("SELECT LAST_INSERT_ID() AS id");
 		return $res[0];
-	}  
+	}
 
 	public function put_data() {
 		$user = Session::get("user");
@@ -62,7 +62,7 @@ class File_Model extends Model {
 	public function put_image($tablesData) {
 		$user = Session::get("user");
 		$sql = "INSERT INTO files_image (img_name, img_store_name, img_size, files_id, upload_by)
-				VALUES"; 
+				VALUES";
 				$valuesArr = array();
 				foreach($tablesData as $row) {
 					$img_name = trim($row['img_name']);
@@ -77,7 +77,7 @@ class File_Model extends Model {
 				$sql .= implode(',', $valuesArr);
 
 				$res = $this->db->query($sql);
-	} 
+	}
 
 	public function get_by_id($id) {
 		$sql = "SELECT files.*, user_1.name create_user_name, user_2.name archived_user_name
